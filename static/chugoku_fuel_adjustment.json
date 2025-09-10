@@ -1,0 +1,98 @@
+{
+  "power_company": "中国電力",
+  "plan_name": "スマートコース",
+  "description": "中国電力スマートコースの燃料調整費",
+  "last_updated": "2025-01-27",
+  "fuel_adjustment_types": {
+    "first_15kwh": {
+      "description": "最初の15kWhまで（円）",
+      "unit": "円",
+      "note": "固定額（使用電力量によらない）"
+    },
+    "over_15kwh": {
+      "description": "15kWhを超える1kWhにつき（円/kWh）",
+      "unit": "円/kWh",
+      "note": "従量料金"
+    }
+  },
+  "monthly_rates": [
+    {
+      "year": "2025",
+      "month": "8",
+      "first_15kwh": "-177.90",
+      "over_15kwh": "-11.85"
+    },
+    {
+      "year": "2025",
+      "month": "7",
+      "first_15kwh": "-141.17",
+      "over_15kwh": "-9.39"
+    },
+    {
+      "year": "2025",
+      "month": "6",
+      "first_15kwh": "-132.86",
+      "over_15kwh": "-8.84"
+    },
+    {
+      "year": "2025",
+      "month": "5",
+      "first_15kwh": "-128.42",
+      "over_15kwh": "-8.54"
+    },
+    {
+      "year": "2025",
+      "month": "4",
+      "first_15kwh": "-145.71",
+      "over_15kwh": "-9.70"
+    },
+    {
+      "year": "2025",
+      "month": "3",
+      "first_15kwh": "-165.63",
+      "over_15kwh": "-11.03"
+    },
+    {
+      "year": "2025",
+      "month": "2",
+      "first_15kwh": "-167.85",
+      "over_15kwh": "-11.17"
+    },
+    {
+      "year": "2025",
+      "month": "1",
+      "first_15kwh": "-130.31",
+      "over_15kwh": "-8.67"
+    },
+    {
+      "year": "2024",
+      "month": "12",
+      "first_15kwh": "-126.71",
+      "over_15kwh": "-8.44"
+    },
+    {
+      "year": "2024",
+      "month": "11",
+      "first_15kwh": "-160.65",
+      "over_15kwh": "-10.69"
+    },
+    {
+      "year": "2024",
+      "month": "10",
+      "first_15kwh": "-182.16",
+      "over_15kwh": "-12.13"
+    },
+    {
+      "year": "2024",
+      "month": "9",
+      "first_15kwh": "-183.16",
+      "over_15kwh": "-12.19"
+    }
+  ],
+  "calculation_formula": "最初の15kWh分の燃料調整費（固定額）+ 15kWhを超える分の燃料調整費単価 ×（使用電力量 - 15kWh）",
+  "notes": {
+    "update_frequency": "燃料調整費は毎月見直されます",
+    "negative_values": "マイナス値は電気料金から差し引かれることを示します",
+    "reference": "中国電力公式サイトの料金表を参照"
+  }
+} 

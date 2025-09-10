@@ -1,0 +1,80 @@
+{
+  "power_company": "九州電力",
+  "description": "九州電力の燃料調整費",
+  "last_updated": "2025-01-27",
+  "fuel_adjustment_type": {
+    "description": "1kWhにつき",
+    "unit": "円/kWh",
+    "note": "全使用電力量に対して適用"
+  },
+  "monthly_rates": [
+    {
+      "year": "2025",
+      "month": "8",
+      "rate": "-0.72"
+    },
+    {
+      "year": "2025",
+      "month": "7",
+      "rate": "1.55"
+    },
+    {
+      "year": "2025",
+      "month": "6",
+      "rate": "1.86"
+    },
+    {
+      "year": "2025",
+      "month": "5",
+      "rate": "1.86"
+    },
+    {
+      "year": "2025",
+      "month": "4",
+      "rate": "0.56"
+    },
+    {
+      "year": "2025",
+      "month": "3",
+      "rate": "-0.64"
+    },
+    {
+      "year": "2025",
+      "month": "2",
+      "rate": "-0.64"
+    },
+    {
+      "year": "2025",
+      "month": "1",
+      "rate": "1.86"
+    },
+    {
+      "year": "2024",
+      "month": "12",
+      "rate": "1.86"
+    },
+    {
+      "year": "2024",
+      "month": "11",
+      "rate": "-0.64"
+    },
+    {
+      "year": "2024",
+      "month": "10",
+      "rate": "-2.14"
+    },
+    {
+      "year": "2024",
+      "month": "9",
+      "rate": "-2.14"
+    }
+  ],
+  "calculation_formula": "燃料調整費単価 × 使用電力量",
+  "notes": {
+    "update_frequency": "燃料調整費は毎月見直されます",
+    "negative_values": "マイナス値は電気料金から差し引かれることを示します",
+    "positive_values": "プラス値は電気料金に加算されることを示します",
+    "applicable_plans": "九州電力の全プランに適用",
+    "reference": "九州電力公式サイトの料金表を参照"
+  }
+} 

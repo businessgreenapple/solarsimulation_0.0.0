@@ -1,0 +1,80 @@
+{
+  "power_company": "四国電力",
+  "plan_category": "おトクeプラン、スマイルAPプラン以外のプラン",
+  "description": "四国電力おトクeプラン・スマイルAPプラン以外のプランの燃料調整費",
+  "last_updated": "2025-01-27",
+  "fuel_adjustment_type": {
+    "description": "1kWhにつき",
+    "unit": "円/kWh",
+    "note": "全使用電力量に対して適用"
+  },
+  "monthly_rates": [
+    {
+      "year": "2025",
+      "month": "8",
+      "rate": "-6.95"
+    },
+    {
+      "year": "2025",
+      "month": "7",
+      "rate": "-6.62"
+    },
+    {
+      "year": "2025",
+      "month": "6",
+      "rate": "-6.62"
+    },
+    {
+      "year": "2025",
+      "month": "5",
+      "rate": "-6.02"
+    },
+    {
+      "year": "2025",
+      "month": "4",
+      "rate": "-5.93"
+    },
+    {
+      "year": "2025",
+      "month": "3",
+      "rate": "-6.01"
+    },
+    {
+      "year": "2025",
+      "month": "2",
+      "rate": "-6.11"
+    },
+    {
+      "year": "2025",
+      "month": "1",
+      "rate": "-6.10"
+    },
+    {
+      "year": "2024",
+      "month": "12",
+      "rate": "-5.90"
+    },
+    {
+      "year": "2024",
+      "month": "11",
+      "rate": "-5.70"
+    },
+    {
+      "year": "2024",
+      "month": "10",
+      "rate": "-5.64"
+    },
+    {
+      "year": "2024",
+      "month": "9",
+      "rate": "-5.70"
+    }
+  ],
+  "calculation_formula": "燃料調整費単価 × 使用電力量",
+  "notes": {
+    "update_frequency": "燃料調整費は毎月見直されます",
+    "negative_values": "マイナス値は電気料金から差し引かれることを示します",
+    "applicable_plans": "従量電灯A、従量電灯B、時間帯別電灯、その他の従来プラン",
+    "reference": "四国電力公式サイトの料金表を参照"
+  }
+} 

@@ -1,0 +1,4 @@
+﻿name,rated_output_power,open_circuit_voltage,short_circuit_current,max_power_voltage,max_power_current,module_efficiency
+JKM440N-54HL4R-V,440,39.38,13.86,32.81,13.41,20.5
+JKM450N-54HL4R-V,450,39.78,14,33.21,13.55,20.8
+SRM305M-60N,305,39.4,9.8,33,9.25,19.8

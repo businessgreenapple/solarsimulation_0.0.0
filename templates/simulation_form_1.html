@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太陽光発電 経済効果シミュレーション - ステップ1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <h1 id="form-title">太陽光発電 経済効果シミュレーション</h1>
+        </header>
+        
+        <div class="main-layout">
+            <main class="main-content">
+                <div class="progress-indicator">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">場所の選択</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">電気契約の選択</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">太陽電池の選択</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">周辺機器の選択</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">蓄電池の選択</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">結果</div>
+                    </div>
+                </div>
+
+                <form id="simulation-form">
+                    <div class="step-content active" data-step="1">
+                        <h2>ステップ 1: 場所の選択</h2>
+                        <p style="color: #666; margin-bottom: 1.5em; font-size: 0.9em;">※ 印の項目は必須入力です</p>
+                        <div class="form-group required" id="prefecture-group">
+                            <label for="prefecture">都道府県</label>
+                            <select id="prefecture" name="prefecture" required></select>
+                            <span class="error-message" id="prefecture-error" style="display: none;"></span>
+                        </div>
+                        <div class="form-group required" id="location-group">
+                            <label for="location-select">地点</label>
+                            <select id="location-select" name="location" disabled></select>
+                            <span class="error-message" id="location-error" style="display: none;"></span>
+                        </div>
+                        <div class="step-buttons">
+                            <button type="button" class="btn-next" onclick="nextStep()">次へ</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>入力ガイド</h3>
+                    <div class="guide-section">
+                        <h4>ステップ1: 場所の選択</h4>
+                        <p>太陽光発電システムを設置する場所を選択してください。</p>
+                        <ul>
+                            <li><strong>都道府県:</strong> 設置予定の都道府県を選択</li>
+                            <li><strong>地点:</strong> 具体的な地点を選択（気象データに影響）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>次のステップ</h4>
+                        <p>場所の選択が完了すると、電気契約の選択に進みます。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='simulation_form.js') }}"></script>
+</body>
+</html> 

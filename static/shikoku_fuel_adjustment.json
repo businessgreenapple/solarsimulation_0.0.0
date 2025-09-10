@@ -1,0 +1,99 @@
+{
+  "power_company": "四国電力",
+  "plan_names": ["おトクeプラン", "スマイルAPプラン"],
+  "description": "四国電力おトクeプラン・スマイルAPプランの燃料調整費",
+  "last_updated": "2025-01-27",
+  "fuel_adjustment_types": {
+    "first_11kwh": {
+      "description": "最初の11kWhまで（固定額）",
+      "unit": "円",
+      "note": "固定額（使用電力量によらない）"
+    },
+    "over_11kwh": {
+      "description": "11kWhを超える1kWhにつき",
+      "unit": "円/kWh",
+      "note": "従量料金"
+    }
+  },
+  "monthly_rates": [
+    {
+      "year": "2025",
+      "month": "8",
+      "first_11kwh": "-76.40",
+      "over_11kwh": "-6.95"
+    },
+    {
+      "year": "2025",
+      "month": "7",
+      "first_11kwh": "-72.84",
+      "over_11kwh": "-6.62"
+    },
+    {
+      "year": "2025",
+      "month": "6",
+      "first_11kwh": "-68.44",
+      "over_11kwh": "-6.62"
+    },
+    {
+      "year": "2025",
+      "month": "5",
+      "first_11kwh": "-66.24",
+      "over_11kwh": "-6.02"
+    },
+    {
+      "year": "2025",
+      "month": "4",
+      "first_11kwh": "-65.22",
+      "over_11kwh": "-5.93"
+    },
+    {
+      "year": "2025",
+      "month": "3",
+      "first_11kwh": "-66.07",
+      "over_11kwh": "-6.01"
+    },
+    {
+      "year": "2025",
+      "month": "2",
+      "first_11kwh": "-67.25",
+      "over_11kwh": "-6.11"
+    },
+    {
+      "year": "2025",
+      "month": "1",
+      "first_11kwh": "-67.08",
+      "over_11kwh": "-6.10"
+    },
+    {
+      "year": "2024",
+      "month": "12",
+      "first_11kwh": "-64.88",
+      "over_11kwh": "-5.90"
+    },
+    {
+      "year": "2024",
+      "month": "11",
+      "first_11kwh": "-62.68",
+      "over_11kwh": "-5.70"
+    },
+    {
+      "year": "2024",
+      "month": "10",
+      "first_11kwh": "-62.00",
+      "over_11kwh": "-5.64"
+    },
+    {
+      "year": "2024",
+      "month": "9",
+      "first_11kwh": "-62.68",
+      "over_11kwh": "-5.70"
+    }
+  ],
+  "calculation_formula": "最初の11kWh分の燃料調整費（固定額）+ 11kWhを超える分の燃料調整費単価 ×（使用電力量 - 11kWh）",
+  "notes": {
+    "update_frequency": "燃料調整費は毎月見直されます",
+    "negative_values": "マイナス値は電気料金から差し引かれることを示します",
+    "applicable_plans": "おトクeプラン、スマイルAPプラン",
+    "reference": "四国電力公式サイトの料金表を参照"
+  }
+} 

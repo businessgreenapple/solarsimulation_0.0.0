@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太陽光発電 経済効果シミュレーション - ステップ3</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <h1 id="form-title">太陽光発電 経済効果シミュレーション</h1>
+        </header>
+        
+        <div class="main-layout">
+            <main class="main-content">
+                <div class="progress-indicator">
+                    <div class="step completed" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">場所の選択</div>
+                    </div>
+                    <div class="step completed" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">電気契約の選択</div>
+                    </div>
+                    <div class="step active" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">太陽電池の選択</div>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">周辺機器の選択</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">蓄電池の選択</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">結果</div>
+                    </div>
+                </div>
+
+                <form id="simulation-form">
+                    <div class="step-content active" data-step="3">
+                        <h2>ステップ 3: 太陽電池の選択</h2>
+                        <p style="color: #666; margin-bottom: 1.5em; font-size: 0.9em;">※ 印の項目は必須入力です</p>
+                        <div class="form-group required" id="module-model-group">
+                            <label for="module-model">モジュール型式</label>
+                            <select id="module-model" name="moduleModel" required></select>
+                            <span class="error-message" id="module-model-error" style="display: none;"></span>
+                        </div>
+                        <div class="form-group required" id="module-quantity-group">
+                            <label for="module-quantity">枚数</label>
+                            <input type="number" id="module-quantity" name="moduleQuantity" min="3" max="60" required placeholder="例: 10">
+                            <span class="error-message" id="module-quantity-error" style="display: none;"></span>
+                            <small style="color: #666; font-size: 0.85em;">※ 3枚以上60枚以下で入力してください</small>
+                        </div>
+                        <div class="form-group required" id="installation-face-group">
+                            <label for="installation-face">設置面</label>
+                            <select id="installation-face" name="installationFace" required>
+                                <option value="">設置面を選択</option>
+                                <option value="西">西</option>
+                                <option value="南西">南西</option>
+                                <option value="南">南</option>
+                                <option value="南東">南東</option>
+                                <option value="東">東</option>
+                            </select>
+                            <span class="error-message" id="installation-face-error" style="display: none;"></span>
+                        </div>
+                        <div class="form-group required" id="roof-angle-group">
+                            <label for="roof-angle">屋根の傾斜角度</label>
+                            <select id="roof-angle" name="roofAngle" required>
+                                <option value="">傾斜角度を選択</option>
+                            </select>
+                            <span class="error-message" id="roof-angle-error" style="display: none;"></span>
+                            <small style="color: #666; font-size: 0.85em;">※ 屋根の傾斜角度を選択してください（0度〜45度）</small>
+                        </div>
+                        <div class="step-buttons">
+                            <button type="button" class="btn-restart" onclick="restartSimulation()">最初に戻る</button>
+                            <button type="button" class="btn-prev" onclick="history.back()">戻る</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">次へ</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>入力ガイド</h3>
+                    <div class="guide-section">
+                        <h4>ステップ3: 太陽電池の選択</h4>
+                        <p>設置予定の太陽光パネルを選択してください。</p>
+                        <ul>
+                            <li><strong>モジュール型式:</strong> 設置予定のパネルの型式を選択</li>
+                            <li><strong>枚数:</strong> 設置予定のパネル枚数を選択</li>
+                            <li><strong>設置面:</strong> パネルの設置方向を選択</li>
+                            <li><strong>屋根の傾斜角度:</strong> 屋根の傾斜角度を選択</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>設置面の選び方</h4>
+                        <p>南向きが最も発電効率が高く、次に南東・南西、東・西の順になります。</p>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>屋根の傾斜角度について</h4>
+                        <ul>
+                            <li><strong>0度:</strong> 水平設置</li>
+                            <li><strong>10度:</strong> 緩い傾斜</li>
+                            <li><strong>20度:</strong> 標準的な傾斜</li>
+                            <li><strong>30度:</strong> 急な傾斜</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>次のステップ</h4>
+                        <p>太陽電池の選択が完了すると、周辺機器の選択に進みます。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='simulation_form.js') }}"></script>
+</body>
+</html> 

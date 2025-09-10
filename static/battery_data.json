@@ -1,0 +1,28 @@
+{
+  "batteries": [
+    {
+      "model_name": "ES-T3M1",
+      "capacity_kwh": 7.4,
+      "effective_capacity_kwh": 6.4,
+      "rated_output_kw": 4.0,
+      "charge_discharge_efficiency_percent": 92.6,
+      "manufacturer": "ニチコン"
+    },
+    {
+      "model_name": "ESS-U4M1",
+      "capacity_kwh": 11.1,
+      "effective_capacity_kwh": 10.0,
+      "rated_output_kw": 3.0,
+      "charge_discharge_efficiency_percent": 92.6,
+      "manufacturer": "ニチコン"
+    },
+    {
+      "model_name": "ESS-U4X1",
+      "capacity_kwh": 16.6,
+      "effective_capacity_kwh": 14.0,
+      "rated_output_kw": 3.0,
+      "charge_discharge_efficiency_percent": 92.6,
+      "manufacturer": "ニチコン"
+    }
+  ]
+} 

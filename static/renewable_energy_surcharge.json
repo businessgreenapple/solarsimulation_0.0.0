@@ -1,0 +1,36 @@
+{
+  "renewable_energy_surcharge_rates": {
+    "description": "全国共通 再生可能エネルギー発電促進賦課金単価（円/kWh）",
+    "unit": "円/kWh",
+    "applicable_companies": [
+      "東京電力エナジーパートナー",
+      "関西電力",
+      "中部電力",
+      "中国電力",
+      "九州電力",
+      "東北電力",
+      "北海道電力",
+      "四国電力",
+      "沖縄電力"
+    ],
+    "data": [
+      {
+        "period": "2025年5月～2026年4月",
+        "start_date": "2025-05-01",
+        "end_date": "2026-04-30",
+        "rate": "3.98",
+        "year": "2025-2026",
+        "month": "5-4"
+      }
+    ],
+    "notes": {
+      "description": "再生可能エネルギー発電促進賦課金は、固定価格買取制度（FIT）の買取費用を電気料金に転嫁する制度",
+      "calculation": "再エネ賦課金 = 再エネ賦課金単価 × 使用電力量",
+      "period_note": "2025年4月は3.49円/kWh、2025年5月以降は3.98円/kWhに変更",
+      "update_frequency": "年1回更新（5月）",
+      "national_standard": "全国の電力会社で統一された単価",
+      "source": "経済産業省資源エネルギー庁",
+      "last_updated": "2025年7月"
+    }
+  }
+} 

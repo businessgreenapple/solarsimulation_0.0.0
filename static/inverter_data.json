@@ -1,0 +1,56 @@
+{
+  "inverters": [
+    {
+      "model_name": "SPSS-55E-SN",
+      "rated_output_kw": 5.5,
+      "voltage_range_v": "40-450",
+      "rated_output_voltage_v": 202,
+      "max_input_current_1_circuit_a": 14.5,
+      "max_input_current_4_circuits_a": 44.0,
+      "short_circuit_current_a": 15.0,
+      "efficiency_percent": 96.0,
+      "power_factor_percent": 95.0,
+      "installation_location": "屋外",
+      "manufacturer": "サニックス"
+    },
+    {
+      "model_name": "SPSM-444BS-SN",
+      "rated_output_kw": 4.4,
+      "voltage_range_v": "40-450",
+      "rated_output_voltage_v": 202,
+      "max_input_current_1_circuit_a": 11.0,
+      "max_input_current_4_circuits_a": 44.0,
+      "short_circuit_current_a": 15.0,
+      "efficiency_percent": 96.5,
+      "power_factor_percent": 95.0,
+      "installation_location": "屋外",
+      "manufacturer": "サニックス"
+    },
+    {
+      "model_name": "SPSM-554BS-SN",
+      "rated_output_kw": 5.5,
+      "voltage_range_v": "40-450",
+      "rated_output_voltage_v": 202,
+      "max_input_current_1_circuit_a": 11.0,
+      "max_input_current_4_circuits_a": 44.0,
+      "short_circuit_current_a": 15.0,
+      "efficiency_percent": 96.5,
+      "power_factor_percent": 95.0,
+      "installation_location": "屋外",
+      "manufacturer": "サニックス"
+    },
+    {
+      "model_name": "ES-T3",
+      "rated_output_kw": 5.9,
+      "voltage_range_v": "50-450",
+      "rated_output_voltage_v": 202,
+      "max_input_current_1_circuit_a": 13.5,
+      "max_input_current_4_circuits_a": 54.0,
+      "short_circuit_current_a": 15.0,
+      "efficiency_percent": 95.0,
+      "power_factor_percent": 95.0,
+      "installation_location": "屋外",
+      "manufacturer": "ニチコン"
+    }
+  ]
+} 

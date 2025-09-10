@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太陽光発電 経済効果シミュレーション - 結果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <h1 id="form-title">太陽光発電 経済効果シミュレーション</h1>
+        </header>
+        
+        <div class="main-layout">
+            <main class="main-content">
+                <div class="progress-indicator">
+                    <div class="step completed" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">場所の選択</div>
+                    </div>
+                    <div class="step completed" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">電気契約の選択</div>
+                    </div>
+                    <div class="step completed" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">太陽電池の選択</div>
+                    </div>
+                    <div class="step completed" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">周辺機器の選択</div>
+                    </div>
+                    <div class="step completed" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">蓄電池の選択</div>
+                    </div>
+                    <div class="step active" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">結果</div>
+                    </div>
+                </div>
+
+                <form id="simulation-form">
+                    <div class="step-content active" data-step="6">
+                        <h2>シミュレーション結果</h2>
+                        <div class="input-summary">
+                            <div class="input-summary-header">
+                                <h3>入力内容の確認</h3>
+                                <button type="button" class="btn-toggle-summary" id="toggle-summary-btn">
+                                    <span class="toggle-icon">▼</span>
+                                    <span class="toggle-text">非表示</span>
+                                </button>
+                            </div>
+                            <div id="input-summary-content" class="input-summary-body"></div>
+                        </div>
+                        <div class="simulation-results">
+                            <h3>シミュレーション結果</h3>
+                            <div id="simulation-results-content">
+                                <p>シミュレーションを実行中...</p>
+                            </div>
+                        </div>
+                        
+
+                        
+                        <!-- 蓄電池の充放電パターングラフ -->
+                        <div class="battery-pattern-chart-section" id="batteryPatternSection" style="display: none;">
+                            <h3>蓄電池の充放電パターン</h3>
+                            <div class="chart-container" style="position: relative; height: 400px; width: 100%;">
+                                <canvas id="batteryPatternChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- 蓄電池ありなしの比較グラフ -->
+                        <div class="battery-comparison-chart-section" id="batteryComparisonSection" style="display: none;">
+                            <h3>蓄電池ありなしの比較</h3>
+                            <div class="chart-container" style="position: relative; height: 400px; width: 100%;">
+                                <canvas id="batteryComparisonChart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- 蓄電池詳細情報 -->
+                        <div class="battery-details-section" id="batteryDetailsSection" style="display: none;">
+                            <h3>蓄電池の詳細情報</h3>
+                            <div class="battery-details-content" id="batteryDetailsContent">
+                                <!-- JavaScriptで動的に生成 -->
+                            </div>
+                        </div>
+                        
+                        <!-- 10年間の経済効果詳細テーブル -->
+                        <div class="yearly-economic-effects-section">
+                            <h3>10年間の経済効果詳細</h3>
+                            <div class="table-container">
+                                <table id="yearlyEconomicEffectsTable" class="economic-effects-table">
+                                    <thead>
+                                        <tr>
+                                            <th>年次</th>
+                                            <th>売電単価<br>(円/kWh)</th>
+                                            <th>売電額<br>(円/年)</th>
+                                            <th>自家消費量<br>(kWh/年)</th>
+                                            <th>自家消費額<br>(円/年)</th>
+                                            <th>合計経済効果<br>(円/年)</th>
+                                            <th>累計経済効果<br>(円)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="yearlyEconomicEffectsTableBody">
+                                        <!-- JavaScriptで動的に生成 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="total-10year-effect">
+                                <h4>10年間の総経済効果</h4>
+                                <div class="total-amount" id="total10YearEffect">
+                                    <!-- JavaScriptで動的に生成 -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="disclaimer-section">
+                            <h3>注意事項</h3>
+                            <div class="disclaimer-content">
+                                <ul>
+                                    <li>本シミュレーションは、発電量を保証するものではありません。気象条件や周囲の環境などにより発電量は変動しますので、あくまで目安としてお使いください。</li>
+                                    <li>電力会社の遠隔出力制御による抑制分は考慮しておりません。</li>
+                                    <li>発電量の計算は、国立研究開発法人 新エネルギー・産業技術総合開発機構（NEDO）発行の全国日射量データベース「MONSOLA-20」を用いています。1時間単位の精密計算により、より高精度な発電量予測を実現しています。</li>
+                                    <li>太陽電池容量は、JIS規格に基づき算出された太陽電池モジュールの公称最大出力の合計値です。</li>
+                                    <li>損失係数として、素子温度上昇による損失（月により7～20%）、その他の損失（配線・回路ロス等 5%）を考慮しているため、推定発電電力は最大でも太陽光発電システム容量の70～80％程度になります。</li>
+                                    <li>CO2削減効果は、2024年度 JPEA（太陽光発電協会）の「表示ガイドライン」に基づき、0.3925kg-CO2/kWhで算出しています。</li>
+                                    <li>石油の削減量は、0.222L/kWhとして算出しています。</li>
+                                    <li>スギの木のCO2吸収量は、林野庁のホームページを参考に1本あたり14kgとして算出しています。</li>
+                                    <li>シミュレーションの計算過程における端数処理（四捨五入など）の関係上、各項目の合計値と内訳が完全には一致しない場合があります。あらかじめご了承ください。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="btn-prev" onclick="history.back()">戻る</button>
+                            <button type="button" class="btn-restart" onclick="restartSimulation()">最初からやり直す</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>結果の見方</h3>
+                    <div class="guide-section">
+                        <h4>シミュレーション結果</h4>
+                        <p>入力された条件に基づいて、太陽光発電システムの経済効果を計算します。</p>
+                        <ul>
+                            <li><strong>推定発電量:</strong> 年間の発電量予測</li>
+                            <li><strong>推定売電収入:</strong> 売電による年間収入</li>
+                            <li><strong>推定節約額:</strong> 電気料金の節約額</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>結果の活用</h4>
+                        <p>この結果を参考に、太陽光発電システムの導入を検討してください。</p>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>再度シミュレーション</h4>
+                        <p>条件を変更して再度シミュレーションを行いたい場合は、「最初からやり直す」ボタンを使用してください。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='simulation_form.js') }}"></script>
+</body>
+</html> 

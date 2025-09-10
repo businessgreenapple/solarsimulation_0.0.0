@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太陽光発電 経済効果シミュレーション - ステップ5</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <h1 id="form-title">太陽光発電 経済効果シミュレーション</h1>
+        </header>
+        
+        <div class="main-layout">
+            <main class="main-content">
+                <div class="progress-indicator">
+                    <div class="step completed" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">場所の選択</div>
+                    </div>
+                    <div class="step completed" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">電気契約の選択</div>
+                    </div>
+                    <div class="step completed" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">太陽電池の選択</div>
+                    </div>
+                    <div class="step completed" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">周辺機器の選択</div>
+                    </div>
+                    <div class="step active" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">蓄電池の選択</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">結果</div>
+                    </div>
+                </div>
+
+                <form id="simulation-form">
+                    <div class="step-content active" data-step="5">
+                        <h2>ステップ 5: 蓄電池の選択</h2>
+                        <div class="form-group">
+                            <label for="battery-model">蓄電池型式</label>
+                            <select id="battery-model" name="batteryModel">
+                                <option value="">蓄電池データを読み込み中...</option>
+                            </select>
+                        </div>
+                        <div id="battery-details" class="battery-details" style="display: none;">
+                            <h3>選択された蓄電池の詳細</h3>
+                            <div class="battery-info">
+                                <div class="info-row">
+                                    <span class="info-label">型式:</span>
+                                    <span id="selected-battery-model" class="info-value"></span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">公称容量:</span>
+                                    <span id="selected-battery-capacity" class="info-value"></span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">実効容量:</span>
+                                    <span id="selected-battery-effective-capacity" class="info-value"></span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">定格出力:</span>
+                                    <span id="selected-battery-output" class="info-value"></span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">充放電効率:</span>
+                                    <span id="selected-battery-efficiency" class="info-value"></span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">メーカー:</span>
+                                    <span id="selected-battery-manufacturer" class="info-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-buttons">
+                            <button type="button" class="btn-restart" onclick="restartSimulation()">最初に戻る</button>
+                            <button type="button" class="btn-prev" onclick="history.back()">戻る</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">シミュレーション開始</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>入力ガイド</h3>
+                    <div class="guide-section">
+                        <h4>ステップ5: 蓄電池の選択</h4>
+                        <p>蓄電池の設置を検討している場合は選択してください。</p>
+                        <ul>
+                            <li><strong>蓄電池型式:</strong> 設置予定の蓄電池を選択</li>
+                            <li><strong>蓄電池なし:</strong> 蓄電池を設置しない場合は「蓄電池なし」を選択</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>蓄電池のメリット</h4>
+                        <p>蓄電池を設置することで、夜間の電力使用や停電時のバックアップが可能になります。</p>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>シミュレーション開始</h4>
+                        <p>すべての入力が完了したら「シミュレーション開始」ボタンをクリックして結果を確認します。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='simulation_form.js') }}"></script>
+</body>
+</html> 

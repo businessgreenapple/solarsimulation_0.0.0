@@ -1,0 +1,28 @@
+{
+  "modules": [
+    {
+      "model": "JKM450N-54HL4R-V",
+      "nominal_power": 450,
+      "efficiency": 22.52,
+      "dimensions": {
+        "length": 1762,
+        "width": 1134,
+        "height": 30
+      },
+      "manufacturer": "JINKO Solar",
+      "cell_type": "HIT",
+      "voltage": {
+        "voc": 39.78,
+        "vmpp": 33.21,
+        "isc": 14.00,
+        "impp": 13.55
+      },
+      "temperature_coefficient": {
+        "power": -0.29,
+        "voltage": -0.25,
+        "current": 0.045
+      }
+    }
+  
+  ]
+} 

@@ -1,0 +1,136 @@
+{
+  "power_company": "関西電力",
+  "description": "関西電力の電気契約プラン一覧",
+  "last_updated": "2025-01-27",
+  "active_plans": {
+    "description": "現在新規申し込みが可能なプラン",
+    "plans": [
+      {
+        "plan_name": "withポイントでんき",
+        "minimum_charge": "433.41",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の15kWhまで",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "20.31",
+        "usage_rate_tier1_range": "15kWh～120kWh",
+        "usage_rate_tier2": "25.71",
+        "usage_rate_tier2_range": "120kWh～300kWh",
+        "usage_rate_tier3": "28.70",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula":"最低料金+従量料金単価*使用電力量+最初の15kWhまでの燃料調整費+燃料調整費単価*(使用電力量-15kWh)+再エネ賦課金単価*(使用電力量-15kWh)",
+        "note": "最低料金制、段階制従量料金（3段階）、定額料金なし"
+      },
+      {
+        "plan_name": "なっトクでんき",
+        "minimum_charge": "377.40",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の15kWhまで",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "20.31",
+        "usage_rate_tier1_range": "15kWh～120kWh",
+        "usage_rate_tier2": "24.10",
+        "usage_rate_tier2_range": "120kWh～300kWh",
+        "usage_rate_tier3": "27.80",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula": "最低料金+従量料金単価*使用電力量+最初の15kWhまでの燃料調整費+燃料調整費単価*(使用電力量-15kWh)+再エネ賦課金単価*(使用電力量-15kWh)",
+        "note": "最低料金制、段階制従量料金（3段階）、定額料金なし"
+      },
+      {
+        "plan_name": "eおとくプラン",
+        "basic_charge": "1,302.40",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "最初の6kWまで、6kWをこえる1kWにつき416.94円",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "15.31",
+        "usage_rate_tier1_range": "～180kWh",
+        "usage_rate_tier2": "24.48",
+        "usage_rate_tier2_range": "180kWh～300kWh",
+        "usage_rate_tier3": "28.41",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（6kW超過分は加算）、段階制従量料金（3段階）、定額料金なし"
+      },
+      {
+        "plan_name": "従量電灯A",
+        "minimum_charge": "522.58",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の15kWhまで",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "20.21",
+        "usage_rate_tier1_range": "15kWh～120kWh",
+        "usage_rate_tier2": "25.61",
+        "usage_rate_tier2_range": "120kWh～300kWh",
+        "usage_rate_tier3": "28.59",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula": "最低料金+従量料金単価*使用電力量+最初の15kWhまでの燃料調整費+燃料調整費単価*(使用電力量-15kWh)+再エネ賦課金単価*(使用電力量-15kWh)",
+        "note": "最低料金制、段階制従量料金（3段階）、定額料金なし"
+      },
+      {
+        "plan_name": "はぴeタイムR",
+        "basic_charge": "2,409.40",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "最初の10kWまで、10kWをこえる1kWにつき416.94円",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_summer": {
+          "7-9": [
+            {"time": "午前7時～午前10時", "rate": "22.80"},
+            {"time": "午前10時～午後5時", "rate": "28.87"},
+            {"time": "午後5時～午後11時", "rate": "22.80"},
+            {"time": "午後11時～午前7時", "rate": "15.37"}
+          ]
+        },
+        "usage_rate_other_months": {
+          "1-6,10-12": [
+            {"time": "午前7時～午前10時", "rate": "22.80"},
+            {"time": "午前10時～午後5時", "rate": "26.24"},
+            {"time": "午後5時～午後11時", "rate": "22.80"},
+            {"time": "午後11時～午前7時", "rate": "15.37"}
+          ]
+        },
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula": "基本料金+時間帯別従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（10kW超過分は加算）、時間帯・季節別従量料金（4区分）、定額料金なし"
+      },
+      {
+        "plan_name": "時間帯別電灯",
+        "basic_charge": "1,419.40",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "最初の10kWまで、10kWをこえる1kWにつき416.94円",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_day": [
+          {"range": "～90kWh", "rate": "22.80"},
+          {"range": "90kWh～230kWh", "rate": "26.24"},
+          {"range": "230kWh～", "rate": "22.80"}
+        ],
+        "usage_rate_day_time": "午前7時～午後11時",
+        "usage_rate_night": {
+          "time": "午後11時～午前7時",
+          "rate": "15.37"
+        },
+        "fuel_adjustment": "適用",
+        "renewable_energy_surcharge": "適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（10kW超過分は加算）、時間帯・使用量別従量料金（昼3段階+夜1区分）、定額料金なし"
+      }
+    ]
+  },
+  "legacy_plans": {
+    "description": "従来のプラン（新規申し込み終了）",
+    "plans": []
+  },
+  "notes": {
+    "fuel_adjustment": "燃料調整費についての説明",
+    "renewable_energy_surcharge": "再生可能エネルギー発電促進賦課金についての説明",
+    "calculation_method": "料金計算方法についての説明",
+    "contact_info": "関西電力の連絡先情報"
+  }
+} 

@@ -1,0 +1,351 @@
+{
+  "power_company": "九州電力",
+  "description": "九州電力の電気契約プラン一覧",
+  "last_updated": "2025-01-27",
+  "active_plans": {
+    "description": "現在新規申し込みが可能なプラン",
+    "plans": [
+      {
+        "plan_name": "スマートファミリープラン",
+        "basic_charge": "316.24",
+        "basic_charge_unit": "円/10A",
+        "basic_charge_note": "契約10Aにつき316.24円（最大60Aまで）",
+        "minimum_charge": "335.34",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最低料金保証",
+        "contract_range": "最大60Aまで",
+        "usage_rate_tier1": "18.37",
+        "usage_rate_tier1_range": "～120kWh",
+        "usage_rate_tier2": "23.97",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "25.87",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電流に応じた料金）、最低料金保証（335.34円）、段階制従量料金（3段階、全使用量）、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "電化でナイト・セレクト21",
+        "basic_charge": "1,888.80",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約電力10kW以下：1,888.80円、11kW～15kW：4,758.20円、15kW超過：4,758.20円+573.88円*(契約電力-15kW)",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "weekday_daytime_spring_autumn": {
+            "description": "平日昼間（春秋）",
+            "time": "7時～21時",
+            "season": "3月～6月、10月、11月",
+            "rate": "27.63",
+            "unit": "円/kWh"
+          },
+          "weekday_daytime_summer_winter": {
+            "description": "平日昼間（夏冬）",
+            "time": "7時～21時",
+            "season": "7月～9月、12月～2月",
+            "rate": "24.74",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_spring_autumn": {
+            "description": "休日昼間（春秋）",
+            "time": "7時～21時",
+            "season": "3月～6月、10月、11月",
+            "rate": "22.01",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_summer_winter": {
+            "description": "休日昼間（夏冬）",
+            "time": "7時～21時",
+            "season": "7月～9月、12月～2月",
+            "rate": "18.61",
+            "unit": "円/kWh"
+          },
+          "nighttime": {
+            "description": "夜間",
+            "time": "21時～翌7時",
+            "rate": "14.59",
+            "unit": "円/kWh"
+          }
+        },
+        "holiday_definition": {
+          "description": "休日",
+          "days": "土、日、祝日、1月2日～3日、4月30日～5月2日、12月30日～31日"
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電力に応じた料金）、時間帯・季節・曜日別従量料金（5区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "電化でナイト・セレクト22",
+        "basic_charge": "1,888.80",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約電力10kW以下：1,888.80円、11kW～15kW：4,758.20円、15kW超過：4,758.20円+573.88円*(契約電力-15kW)",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "weekday_daytime_spring_autumn": {
+            "description": "平日昼間（春秋）",
+            "time": "8時～22時",
+            "season": "3月～6月、10月、11月",
+            "rate": "27.63",
+            "unit": "円/kWh"
+          },
+          "weekday_daytime_summer_winter": {
+            "description": "平日昼間（夏冬）",
+            "time": "8時～22時",
+            "season": "7月～9月、12月～2月",
+            "rate": "24.74",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_spring_autumn": {
+            "description": "休日昼間（春秋）",
+            "time": "8時～22時",
+            "season": "3月～6月、10月、11月",
+            "rate": "22.01",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_summer_winter": {
+            "description": "休日昼間（夏冬）",
+            "time": "8時～22時",
+            "season": "7月～9月、12月～2月",
+            "rate": "18.61",
+            "unit": "円/kWh"
+          },
+          "nighttime": {
+            "description": "夜間",
+            "time": "22時～翌8時",
+            "rate": "14.59",
+            "unit": "円/kWh"
+          }
+        },
+        "holiday_definition": {
+          "description": "休日",
+          "days": "土、日、祝日、1月2日～3日、4月30日～5月2日、12月30日～31日"
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電力に応じた料金）、時間帯・季節・曜日別従量料金（5区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "電化でナイト・セレクト23",
+        "basic_charge": "1,888.80",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約電力10kW以下：1,888.80円、11kW～15kW：4,758.20円、15kW超過：4,758.20円+573.88円*(契約電力-15kW)",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "weekday_daytime_spring_autumn": {
+            "description": "平日昼間（春秋）",
+            "time": "9時～23時",
+            "season": "3月～6月、10月、11月",
+            "rate": "27.63",
+            "unit": "円/kWh"
+          },
+          "weekday_daytime_summer_winter": {
+            "description": "平日昼間（夏冬）",
+            "time": "9時～23時",
+            "season": "7月～9月、12月～2月",
+            "rate": "24.74",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_spring_autumn": {
+            "description": "休日昼間（春秋）",
+            "time": "9時～23時",
+            "season": "3月～6月、10月、11月",
+            "rate": "22.01",
+            "unit": "円/kWh"
+          },
+          "holiday_daytime_summer_winter": {
+            "description": "休日昼間（夏冬）",
+            "time": "9時～23時",
+            "season": "7月～9月、12月～2月",
+            "rate": "18.61",
+            "unit": "円/kWh"
+          },
+          "nighttime": {
+            "description": "夜間",
+            "time": "23時～翌9時",
+            "rate": "14.59",
+            "unit": "円/kWh"
+          }
+        },
+        "holiday_definition": {
+          "description": "休日",
+          "days": "土、日、祝日、1月2日～3日、4月30日～5月2日、12月30日～31日"
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電力に応じた料金）、時間帯・季節・曜日別従量料金（5区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "従量電灯B",
+        "basic_charge": "316.24",
+        "basic_charge_unit": "円/10A",
+        "basic_charge_note": "契約10Aにつき316.24円（最大60Aまで）",
+        "minimum_charge": "335.34",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最低料金保証",
+        "contract_range": "最大60Aまで",
+        "usage_rate_tier1": "18.37",
+        "usage_rate_tier1_range": "～120kWh",
+        "usage_rate_tier2": "23.97",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "26.97",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電流に応じた料金）、最低料金保証（335.34円）、段階制従量料金（3段階、全使用量）、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "おひさま昼トクプラン",
+        "basic_charge": "1,888.80",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約電力10kW以下：1,888.80円、11kW～15kW：4,758.20円、15kW超過：4,758.20円+573.88円*(契約電力-15kW)",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "ohisama_spring_autumn": {
+            "description": "おひさまタイム（春秋）",
+            "time": "10時～16時",
+            "season": "3月～6月、10月、11月",
+            "rate": "13.47",
+            "unit": "円/kWh"
+          },
+          "ohisama_summer_winter": {
+            "description": "おひさまタイム（夏冬）",
+            "time": "10時～16時",
+            "season": "7月～9月、12月～2月",
+            "rate": "12.37",
+            "unit": "円/kWh"
+          },
+          "shift_spring_autumn": {
+            "description": "シフトタイム（春秋）",
+            "time": "8時～10時、16時～18時",
+            "season": "3月～6月、10月、11月",
+            "rate": "35.02",
+            "unit": "円/kWh"
+          },
+          "shift_summer_winter": {
+            "description": "シフトタイム（夏冬）",
+            "time": "8時～10時、16時～18時",
+            "season": "7月～9月、12月～2月",
+            "rate": "31.84",
+            "unit": "円/kWh"
+          },
+          "danran": {
+            "description": "だんらんタイム",
+            "time": "18時～翌8時",
+            "rate": "18.37",
+            "unit": "円/kWh"
+          }
+        },
+        "holiday_definition": {
+          "description": "休日",
+          "days": "土、日、祝日、1月2日～3日、4月30日～5月2日、12月30日～31日"
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約電力に応じた料金）、時間帯・季節別従量料金（5区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "季時別電灯",
+        "basic_charge": "1,325.44",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約容量6kVA以下：1,325.44円、6kVA～10kVA：1,842.40円、10kVA超過：1,842.40円+316.24円*(契約容量-10kVA)",
+        "contract_range": "契約容量制限なし",
+        "minimum_charge": "なし",
+        "minimum_charge_note": "最低料金保証なし",
+        "time_based_rates": {
+          "daytime_summer": {
+            "description": "デイタイム（夏期）",
+            "time": "10時～17時",
+            "season": "7月～9月",
+            "rate": "33.57",
+            "unit": "円/kWh"
+          },
+          "daytime_other": {
+            "description": "デイタイム（その他期間）",
+            "time": "10時～17時",
+            "season": "10月～6月",
+            "rate": "27.71",
+            "unit": "円/kWh"
+          },
+          "living": {
+            "description": "リビングタイム",
+            "time": "8時～10時、17時～22時",
+            "rate": "26.03",
+            "unit": "円/kWh"
+          },
+          "nighttime": {
+            "description": "ナイトタイム",
+            "time": "22時～翌8時",
+            "rate": "14.59",
+            "unit": "円/kWh"
+          }
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約容量に応じた料金）、時間帯・季節別従量料金（4区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "時間帯別電灯",
+        "basic_charge": "1,325.44",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "契約容量6kVA以下：1,325.44円、6kVA～10kVA：1,842.40円、10kVA超過：1,842.40円+316.24円*(契約容量-10kVA)",
+        "contract_range": "契約容量制限なし",
+        "minimum_charge": "なし",
+        "minimum_charge_note": "最低料金保証なし",
+        "usage_rate_tier1": "22.31",
+        "usage_rate_tier1_range": "～80kWh",
+        "usage_rate_tier1_time": "昼間時間（8時～22時）",
+        "usage_rate_tier2": "29.67",
+        "usage_rate_tier2_range": "81kWh～200kWh",
+        "usage_rate_tier2_time": "昼間時間（8時～22時）",
+        "usage_rate_tier3": "33.61",
+        "usage_rate_tier3_range": "201kWh～",
+        "usage_rate_tier3_time": "昼間時間（8時～22時）",
+        "time_based_rates": {
+          "nighttime": {
+            "description": "夜間電力",
+            "time": "22時～翌8時",
+            "rate": "14.59",
+            "unit": "円/kWh"
+          }
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約容量に応じた料金）、段階制従量料金（昼間時間3段階、夜間時間1段階、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      }
+    ]
+  },
+  "legacy_plans": {
+    "description": "従来のプラン（新規申し込み終了）",
+    "plans": []
+  },
+  "notes": {
+    "fuel_adjustment": "燃料調整費についての説明",
+    "renewable_energy_surcharge": "再生可能エネルギー発電促進賦課金についての説明",
+    "calculation_method": "料金計算方法についての説明",
+    "contact_info": "九州電力の連絡先情報"
+  }
+} 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太陽光発電 経済効果シミュレーション - ステップ4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="main-header">
+            <h1 id="form-title">太陽光発電 経済効果シミュレーション</h1>
+        </header>
+        
+        <div class="main-layout">
+            <main class="main-content">
+                <div class="progress-indicator">
+                    <div class="step completed" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-title">場所の選択</div>
+                    </div>
+                    <div class="step completed" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-title">電気契約の選択</div>
+                    </div>
+                    <div class="step completed" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-title">太陽電池の選択</div>
+                    </div>
+                    <div class="step active" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-title">周辺機器の選択</div>
+                    </div>
+                    <div class="step" data-step="5">
+                        <div class="step-number">5</div>
+                        <div class="step-title">蓄電池の選択</div>
+                    </div>
+                    <div class="step" data-step="6">
+                        <div class="step-number">6</div>
+                        <div class="step-title">結果</div>
+                    </div>
+                </div>
+
+                <form id="simulation-form">
+                    <div class="step-content active" data-step="4">
+                        <h2>ステップ 4: 周辺機器の選択</h2>
+                        
+                        <!-- モジュール合計枚数表示 -->
+                        <div class="form-group">
+                            <label>選択されたモジュール合計枚数</label>
+                            <div id="total-modules-display" class="info-display">0枚</div>
+                        </div>
+                        
+                        <!-- ストリング表参考リンク -->
+                        <div class="form-group">
+                            <a href="{{ url_for('static', filename='string_reference20250711.pdf') }}" target="_blank" class="reference-link">
+                                ストリング表はこちら（2025.7.11更新）
+                            </a>
+                        </div>
+                        
+                        <!-- パワーコンディショナ1セット目 -->
+                        <div id="inverter-group-1" class="inverter-group">
+                            <h3>パワーコンディショナ 1</h3>
+                            <div class="form-group">
+                                <label for="inverter-model">パワーコンディショナ型式</label>
+                                <select id="inverter-model" name="inverterModel" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inverter-quantity">台数</label>
+                                <select id="inverter-quantity" name="inverterQuantity" required></select>
+                            </div>
+                            
+                            <!-- ストリング構成入力 -->
+                            <div class="form-group">
+                                <label for="series-input">直列枚数</label>
+                                <input type="number" id="series-input" name="seriesInput" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parallel-input">並列数</label>
+                                <input type="number" id="parallel-input" name="parallelInput" min="1" max="4" required>
+                            </div>
+                        </div>
+                        
+                        <!-- パワーコンディショナ2セット目（初期状態では非表示） -->
+                        <div id="inverter-group-2" class="inverter-group" style="display: none;">
+                            <div class="inverter-header">
+                                <h3>パワーコンディショナ 2</h3>
+                                <button type="button" class="btn-remove-inverter" onclick="removeInverterForm()">
+                                    <span class="remove-icon">×</span>
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <label for="inverter-model2">パワーコンディショナ型式</label>
+                                <select id="inverter-model2" name="inverterModel2" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inverter-quantity2">台数</label>
+                                <select id="inverter-quantity2" name="inverterQuantity2" required></select>
+                            </div>
+                            
+                            <!-- ストリング構成入力 -->
+                            <div class="form-group">
+                                <label for="series-input2">直列枚数</label>
+                                <input type="number" id="series-input2" name="seriesInput2" min="1" max="50" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parallel-input2">並列数</label>
+                                <input type="number" id="parallel-input2" name="parallelInput2" min="1" max="4" required>
+                            </div>
+                        </div>
+                        
+                        <!-- 別のパワーコンディショナを追加ボタン -->
+                        <div class="form-group">
+                            <button type="button" id="add-inverter-btn" class="btn-add-inverter" onclick="addInverterForm()">
+                                別のパワーコンディショナを追加
+                            </button>
+                        </div>
+                        
+                        <!-- ストリング構成検証メッセージ -->
+                        <div id="string-config-validation" class="validation-message" style="display: none;"></div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="btn-restart" onclick="restartSimulation()">最初に戻る</button>
+                            <button type="button" class="btn-prev" onclick="history.back()">戻る</button>
+                            <button type="button" class="btn-next" onclick="nextStep()">次へ</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>入力ガイド</h3>
+                    <div class="guide-section">
+                        <h4>ステップ4: 周辺機器の選択</h4>
+                        <p>パワーコンディショナ（PCS）を選択してください。</p>
+                        <ul>
+                            <li><strong>パワーコンディショナ型式:</strong> 設置予定のPCSの型式を選択</li>
+                            <li><strong>台数:</strong> 設置するPCSの台数を選択</li>
+                            <li><strong>直列枚数:</strong> 1ストリングあたりの直列接続枚数</li>
+                            <li><strong>並列数:</strong> ストリングの並列接続数</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>パワーコンディショナとは</h4>
+                        <p>太陽光パネルで発電した直流電流を交流電流に変換する機器です。発電効率に大きく影響します。</p>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>ストリング構成</h4>
+                        <p>直列枚数 × 並列数 = モジュール合計枚数となるように設定してください。</p>
+                    </div>
+                    
+                    <div class="guide-section">
+                        <h4>次のステップ</h4>
+                        <p>周辺機器の選択が完了すると、蓄電池の選択に進みます。</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='simulation_form.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,162 @@
+{
+  "power_company": "四国電力",
+  "description": "四国電力の電気契約プラン一覧",
+  "last_updated": "2025-01-27",
+  "active_plans": {
+    "description": "現在新規申し込みが可能なプラン",
+    "plans": [
+      {
+        "plan_name": "おトクeプラン",
+        "minimum_charge": "666.89",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の11kWhまで（使用量にかかわらず適用）",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "30.65",
+        "usage_rate_tier1_range": "11kWh～120kWh",
+        "usage_rate_tier2": "37.27",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "38.58",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "最初の11kWhまでは固定額、11kWhを超える分は従量料金",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "最低料金+従量料金単価*使用電力量+燃料調整費（最初の11kWhまで）+燃料調整費単価（11kWhをこえる1kWhにつき）*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "最低料金制（11kWhまで）、段階制従量料金（3段階、11kWh超過分から適用）、燃料調整費（固定額+従量）、再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "スマイルAPプラン",
+        "minimum_charge": "1,016.89",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の11kWhまで（使用量にかかわらず適用）",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "30.65",
+        "usage_rate_tier1_range": "11kWh～120kWh",
+        "usage_rate_tier2": "37.27",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "38.58",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "最初の11kWhまでは固定額、11kWhを超える分は従量料金",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "最低料金+従量料金単価*使用電力量+燃料調整費（最初の11kWhまで）+燃料調整費単価（11kWhをこえる1kWhにつき）*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "最低料金制（11kWhまで）、段階制従量料金（3段階、11kWh超過分から適用）、燃料調整費（固定額+従量）、再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "でんかeプラン",
+        "basic_charge": "7,288.66",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "最初の10kWまで、10kWを超える1kWにつき617.22円加算",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "daytime": {
+            "description": "デイタイム",
+            "time": "平日9時～23時",
+            "included_kwh": "40kWhまで含む",
+            "rate": "44.47",
+            "unit": "円/kWh",
+            "note": "40kWhを超える部分から適用"
+          },
+          "nighttime": {
+            "description": "ナイトタイム",
+            "time": "平日23:00～翌日9:00、休日終日",
+            "included_kwh": "130kWhまで含む",
+            "rate": "33.78",
+            "unit": "円/kWh",
+            "note": "130kWhを超える部分から適用"
+          }
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+44.47*（平日9時～23時の使用電力量-40kWh）+33.78*（平日23:00〜翌日9:00、休日終日の使用電力量-130kWh）+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（10kW超過分は加算）、時間帯別従量料金（2区分、一定量超過分から適用）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "昼トクeプラン",
+        "basic_charge": "1,670.90",
+        "basic_charge_unit": "円",
+        "basic_charge_note": "最初の10kWまで、10kWを超える1kWにつき504.90円加算",
+        "contract_range": "契約容量制限なし",
+        "time_based_rates": {
+          "daytime_summer": {
+            "description": "デイタイム（夏季）",
+            "time": "9時～15時",
+            "season": "7月～9月、12月～2月",
+            "rate": "31.60",
+            "unit": "円/kWh"
+          },
+          "daytime_other": {
+            "description": "デイタイム（春秋）",
+            "time": "9時～15時",
+            "season": "3月～6月、10月～11月",
+            "rate": "27.60",
+            "unit": "円/kWh"
+          },
+          "nighttime": {
+            "description": "ナイトタイム",
+            "time": "15:00～翌日9:00",
+            "rate": "31.60",
+            "unit": "円/kWh"
+          }
+        },
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（10kW超過分は加算）、時間帯・季節別従量料金（3区分、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "従量電灯A",
+        "minimum_charge": "666.89",
+        "minimum_charge_unit": "円",
+        "minimum_charge_note": "最初の11kWhまで（使用量にかかわらず適用）",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "30.65",
+        "usage_rate_tier1_range": "11kWh～120kWh",
+        "usage_rate_tier2": "37.27",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "40.78",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "最低料金+従量料金単価*（使用電力量-11kWh）+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "最低料金制（11kWhまで）、段階制従量料金（3段階、11kWh超過分から適用）、燃料調整費・再エネ賦課金（全使用量）"
+      },
+      {
+        "plan_name": "従量電灯B",
+        "basic_charge": "397.10",
+        "basic_charge_unit": "円/kVA",
+        "basic_charge_note": "1kVAにつき397.10円",
+        "contract_range": "契約容量制限なし",
+        "usage_rate_tier1": "27.25",
+        "usage_rate_tier1_range": "～120kWh",
+        "usage_rate_tier2": "32.78",
+        "usage_rate_tier2_range": "121kWh～300kWh",
+        "usage_rate_tier3": "35.70",
+        "usage_rate_tier3_range": "301kWh～",
+        "fuel_adjustment": "適用",
+        "fuel_adjustment_note": "燃料調整費単価*使用電力量（全使用量）",
+        "renewable_energy_surcharge": "適用",
+        "renewable_energy_surcharge_note": "全使用電力量に対して適用",
+        "calculation_formula": "基本料金+従量料金単価*使用電力量+燃料調整費単価*使用電力量+再エネ賦課金単価*使用電力量",
+        "note": "基本料金制（契約容量に応じた料金）、段階制従量料金（3段階、全使用量）、最低料金なし、燃料調整費・再エネ賦課金（全使用量）"
+      }
+    ]
+  },
+  "legacy_plans": {
+    "description": "従来のプラン（新規申し込み終了）",
+    "plans": []
+  },
+  "notes": {
+    "fuel_adjustment": "燃料調整費についての説明",
+    "renewable_energy_surcharge": "再生可能エネルギー発電促進賦課金についての説明",
+    "calculation_method": "料金計算方法についての説明",
+    "contact_info": "四国電力の連絡先情報"
+  }
+} 

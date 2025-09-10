@@ -1,0 +1,1323 @@
+body { font-family: sans-serif; margin: 2em; }
+form { margin-bottom: 2em; }
+input, textarea { display: block; width: 100%; margin-bottom: 1em; }
+#posts { margin-top: 2em; }
+.post { border-bottom: 1px solid #ccc; margin-bottom: 1em; padding-bottom: 1em; } 
+
+/* ページ全体のレイアウト */
+.page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+/* メインレイアウト - レスポンシブ対応 */
+.main-layout {
+    display: flex;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0; /* Flexboxのオーバーフロー防止 */
+}
+
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.sidebar-content {
+    background: #f8f9fa;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 2em;
+}
+
+.guide-section {
+    margin-bottom: 1.5em;
+}
+
+.guide-section:last-child {
+    margin-bottom: 0;
+}
+
+.guide-section h4 {
+    color: #007bff;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+}
+
+.guide-section p {
+    color: #666;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.guide-section ul {
+    margin: 0.5em 0;
+    padding-left: 1.2em;
+}
+
+.guide-section li {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+    line-height: 1.4;
+}
+
+/* シミュレーションフォーム用スタイル */
+#form-title {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 進捗インジケーター */
+.progress-indicator {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    padding: 1em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    z-index: 1;
+}
+
+.step.active:not(:last-child)::after {
+    background: #007bff;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    z-index: 2;
+    position: relative;
+}
+
+.step.active .step-number {
+    background: #007bff;
+    color: #fff;
+}
+
+.step.completed .step-number {
+    background: #28a745;
+    color: #fff;
+}
+
+.step-title {
+    font-size: 0.8em;
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+}
+
+.step.active .step-title {
+    color: #007bff;
+}
+
+.step.completed .step-title {
+    color: #28a745;
+}
+
+/* ステップコンテンツ */
+.step-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.step-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-content h2 {
+    color: #333;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.step-content h3 {
+    color: #333;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.step-content p {
+    color: #666;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+}
+
+/* フォーム要素 */
+.form-group {
+    margin-bottom: 1.2em;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* エラー表示用スタイル */
+.form-group.error label {
+    color: #dc3545;
+}
+
+.form-group.error input,
+.form-group.error select,
+.form-group.error textarea {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220,53,69,0.25);
+    background-color: #fff5f5;
+}
+
+.form-group.error .error-message {
+    color: #dc3545;
+    font-size: 0.85em;
+    margin-top: 0.3em;
+    display: block;
+    font-weight: 500;
+}
+
+/* 必須項目の表示 */
+.form-group.required label::after {
+    content: ' *';
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* フォーカス時のエラー状態 */
+.form-group.error input:focus,
+.form-group.error select:focus,
+.form-group.error textarea:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 2px rgba(220,53,69,0.25);
+    background-color: #fff5f5;
+}
+
+/* エラー状態のアニメーション */
+.form-group.error {
+    animation: errorShake 0.5s ease-in-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* 月別データテーブル */
+.monthly-data-table {
+    margin-top: 1em;
+    overflow-x: auto;
+}
+
+.monthly-data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.monthly-data-table th {
+    background: #007bff;
+    color: #fff;
+    padding: 0.8em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.monthly-data-table td {
+    padding: 0.6em;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.monthly-data-table tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.monthly-data-table tr:hover {
+    background: #e9ecef;
+}
+
+.monthly-data-table input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.monthly-data-table input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.monthly-data-table input::placeholder {
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* ボタン */
+.step-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid #eee;
+}
+
+.btn-prev,
+.btn-next,
+.btn-restart {
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.btn-prev {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btn-prev:hover {
+    background: #5a6268;
+}
+
+.btn-next {
+    background: #007bff;
+    color: #fff;
+}
+
+.btn-next:hover {
+    background: #0056b3;
+}
+
+.btn-restart {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn-restart:hover {
+    background: #1e7e34;
+}
+
+
+
+/* 結果表示 */
+.input-summary,
+.simulation-results {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.input-summary h3,
+.simulation-results h3 {
+    color: #333;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5em;
+}
+
+#input-summary-content {
+    line-height: 1.6;
+}
+
+#input-summary-content div {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+#simulation-results-content {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+/* 月別発電量グラフ */
+.monthly-generation-chart {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.monthly-generation-chart h3 {
+    color: #333;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5em;
+    text-align: center;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#monthlyGenerationChart {
+    max-height: 400px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* レスポンシブ対応 */
+/* タブレット表示（991px以下） */
+@media (max-width: 991px) {
+    body {
+        margin: 1em;
+    }
+    
+    .page-wrapper {
+        padding: 0 0.5em;
+    }
+    
+    .main-layout {
+        flex-direction: column;
+        gap: 1.5em;
+    }
+    
+    .sidebar {
+        width: 100%;
+        order: 2;
+    }
+    
+    .sidebar-content {
+        position: static;
+        top: auto;
+    }
+    
+    .main-content {
+        order: 1;
+    }
+    
+    .progress-indicator {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .step:not(:last-child)::after {
+        display: none;
+    }
+    
+    .step-buttons {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .btn-prev,
+    .btn-next,
+    .btn-restart {
+        width: 100%;
+    }
+    
+    .monthly-data-table {
+        font-size: 0.9em;
+    }
+    
+    .monthly-data-table th,
+    .monthly-data-table td {
+        padding: 0.4em;
+    }
+    
+    .monthly-data-table input {
+        padding: 0.3em;
+        font-size: 1em;
+    }
+}
+
+/* モバイル表示（768px以下） */
+@media (max-width: 768px) {
+    body {
+        margin: 0.5em;
+    }
+    
+    .page-wrapper {
+        padding: 0;
+    }
+    
+    .container {
+        padding: 1em;
+        margin: 0;
+    }
+    
+    #form-title {
+        font-size: 1.3em;
+    }
+    
+    .step-title {
+        font-size: 0.7em;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* ステップ4用のスタイル */
+.info-display {
+    background: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 4px;
+    padding: 0.75em;
+    font-weight: bold;
+    color: #1976d2;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.validation-message {
+    background: #ffebee;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    padding: 0.75em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* パワーコンディショナ追加機能用スタイル */
+.inverter-group {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+.inverter-group h3 {
+    color: #495057;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #007bff;
+    font-size: 1.1em;
+}
+
+.btn-add-inverter {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-inverter:hover {
+    background: #218838;
+}
+
+.btn-add-inverter:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* パワーコンディショナ削除機能用スタイル */
+.inverter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #007bff;
+}
+
+.inverter-header h3 {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.btn-remove-inverter {
+    background: #dc3545;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-remove-inverter:hover {
+    background: #c82333;
+}
+
+.remove-icon {
+    font-weight: bold;
+    line-height: 1;
+}
+
+.reference-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
+.reference-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* 入力内容確認セクション */
+.input-summary {
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.input-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.8em;
+}
+
+.input-summary h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: left;
+    flex: 1;
+}
+
+.btn-toggle-summary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.btn-toggle-summary:hover {
+    background: #5a6268;
+    transform: translateY(-1px);
+}
+
+.btn-toggle-summary:active {
+    transform: translateY(0);
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.toggle-text {
+    font-size: 0.85em;
+}
+
+.input-summary-body {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.input-summary-body.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.input-summary-body.expanded {
+    max-height: 2000px;
+    opacity: 1;
+}
+
+.input-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2em;
+}
+
+.summary-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-section h4 {
+    margin: 0 0 1em 0;
+    color: #007bff;
+    font-size: 1.1em;
+    font-weight: 700;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.6em;
+    display: flex;
+    align-items: center;
+}
+
+.summary-section h4::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: #007bff;
+    margin-right: 0.5em;
+    border-radius: 2px;
+}
+
+.summary-item {
+    margin-bottom: 0.8em;
+    padding: 0.6em 0;
+    border-bottom: 1px solid #f1f3f4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.summary-item strong {
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.95em;
+    min-width: 140px;
+}
+
+.summary-item span {
+    color: #2c3e50;
+    font-weight: 500;
+    text-align: right;
+    flex: 1;
+    margin-left: 1em;
+}
+
+/* シミュレーション結果セクション */
+.simulation-results {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 2em;
+}
+
+.simulation-results h3 {
+    margin: 0 0 1em 0;
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 2px solid #28a745;
+    padding-bottom: 0.5em;
+}
+
+/* 注意事項セクション */
+.disclaimer-section {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.disclaimer-section h3 {
+    margin: 0 0 1em 0;
+    color: #856404;
+    font-size: 1.2em;
+    border-bottom: 2px solid #f39c12;
+    padding-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+}
+
+.disclaimer-section h3::before {
+    content: '⚠️';
+    margin-right: 0.5em;
+    font-size: 1.1em;
+}
+
+.disclaimer-content ul {
+    margin: 0;
+    padding-left: 1.5em;
+    list-style-type: none;
+}
+
+.disclaimer-content li {
+    color: #856404;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 0.8em;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.disclaimer-content li::before {
+    content: '•';
+    color: #f39c12;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.disclaimer-content li:last-child {
+    margin-bottom: 0;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .input-summary {
+        padding: 1.5em;
+    }
+    
+    .input-summary h3 {
+        font-size: 1.2em;
+    }
+    
+    .input-summary-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+    
+    .summary-section {
+        padding: 1.2em;
+    }
+    
+    .summary-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3em;
+    }
+    
+    .summary-item strong {
+        min-width: auto;
+        display: block;
+        margin-bottom: 0.2em;
+        color: #007bff;
+        font-size: 0.9em;
+    }
+    
+    .summary-item span {
+        margin-left: 0;
+        text-align: left;
+        font-weight: 600;
+    }
+    
+    /* シミュレーション結果のレスポンシブ対応 */
+    #simulation-results-content .grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    #simulation-results-content .grid > div {
+        padding: 15px;
+    }
+    
+    #simulation-results-content h4 {
+        font-size: 1.1em;
+    }
+    
+         #simulation-results-content span {
+         font-size: 1.2em;
+     }
+     
+     /* 注意事項セクションのレスポンシブ対応 */
+     .disclaimer-section {
+         padding: 1.2em;
+     }
+     
+     .disclaimer-section h3 {
+         font-size: 1.1em;
+     }
+     
+     .disclaimer-content li {
+         font-size: 0.85em;
+         line-height: 1.5;
+         margin-bottom: 0.6em;
+     }
+     
+     /* 入力内容確認セクションのレスポンシブ対応 */
+     .input-summary-header {
+         flex-direction: column;
+         gap: 1em;
+         align-items: stretch;
+     }
+     
+     .input-summary h3 {
+         text-align: center;
+         font-size: 1.2em;
+     }
+     
+     .btn-toggle-summary {
+         align-self: center;
+         min-width: 100px;
+         padding: 0.4em 0.8em;
+         font-size: 0.85em;
+     }
+ }
+
+/* 自動計算ボタン */
+.auto-calc-section {
+    margin-bottom: 1em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.btn-auto-calc {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-auto-calc:hover {
+    background: #218838;
+}
+
+.btn-auto-calc:active {
+    background: #1e7e34;
+}
+
+.btn-auto-calc:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* 月別データクリアボタン */
+.btn-clear-monthly {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-left: 10px;
+}
+
+.btn-clear-monthly:hover {
+    background: #c82333;
+}
+
+.btn-clear-monthly:active {
+    background: #bd2130;
+}
+
+/* 1日の電力の流れグラフセクション */
+.power-flow-chart-section {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.power-flow-chart-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+
+
+/* 蓄電池の充放電パターングラフセクション */
+.battery-pattern-chart-section {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.battery-pattern-chart-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* 蓄電池比較グラフセクション */
+.battery-comparison-chart-section {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.battery-comparison-chart-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* 蓄電池詳細情報セクション */
+.battery-details-section {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.battery-details-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.battery-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+.battery-detail-card {
+    background: #f8f9fa;
+    padding: 1.5em;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.battery-detail-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.battery-detail-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.battery-detail-card li {
+    margin-bottom: 0.8em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+.battery-detail-card li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.battery-detail-card strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* 蓄電池詳細情報 */
+.battery-details {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-top: 1em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.battery-details h3 {
+    color: #2c3e50;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5em;
+}
+
+.battery-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: bold;
+    color: #495057;
+    min-width: 100px;
+}
+
+.info-value {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .battery-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3em;
+    }
+    
+    .info-label {
+        min-width: auto;
+    }
+}
+
+/* 10年間の経済効果詳細セクション */
+.yearly-economic-effects-section {
+    margin: 2em 0;
+    padding: 1.5em;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.yearly-economic-effects-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1.5em;
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-bottom: 2em;
+}
+
+.economic-effects-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.economic-effects-table th {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9em;
+    border: none;
+}
+
+.economic-effects-table td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.9em;
+}
+
+.economic-effects-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.economic-effects-table tbody tr:hover {
+    background-color: #e3f2fd;
+    transition: background-color 0.2s ease;
+}
+
+.economic-effects-table .year-cell {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.economic-effects-table .price-cell {
+    color: #e65100;
+    font-weight: 600;
+}
+
+.economic-effects-table .revenue-cell {
+    color: #bf360c;
+    font-weight: 600;
+}
+
+.economic-effects-table .savings-cell {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.economic-effects-table .total-cell {
+    color: #1565c0;
+    font-weight: bold;
+    background-color: #e3f2fd;
+}
+
+.total-10year-effect {
+    text-align: center;
+    margin-top: 2em;
+    padding: 1.5em;
+    background: linear-gradient(135deg, #e8f5e8 0%, #4caf50 100%);
+    border-radius: 10px;
+    border: 2px solid #2e7d32;
+}
+
+.total-10year-effect h4 {
+    color: white;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.total-amount {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .economic-effects-table {
+        font-size: 0.8em;
+    }
+    
+    .economic-effects-table th,
+    .economic-effects-table td {
+        padding: 8px 5px;
+    }
+    
+    .total-amount {
+        font-size: 1.5em;
+    }
+} 
