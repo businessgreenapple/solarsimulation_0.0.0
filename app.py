@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template
 from calculation import calculate_simulation
 
@@ -75,4 +76,5 @@ def simulate():
         return jsonify({'error': f'シミュレーション計算中にエラーが発生しました: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False) 
